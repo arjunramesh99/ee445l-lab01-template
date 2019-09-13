@@ -21,9 +21,11 @@ This file contains the function definitions of the two methods: `ST7735_XY_PlotI
 
 This file contains the implementations of the two functions from it's respective .h file.<br><br>
 
-`ST7735_XYplotInit` fills the screen black using `ST7735_FillScreen`, sets the background color for the plot using `ST7735_FillRect`, outputs the title, and sets the endpoints min and max values of the plot.
-<br><br>
-`ST7735_XYplot` plots the values in the buffer using `ST7735_DrawPixel`. The plot coordinates are caluclated using the following lines of code
+##### ST7735_XYplotInit
+This function fills the screen black using `ST7735_FillScreen`, sets the background color for the plot using `ST7735_FillRect`, outputs the title, and sets the endpoints min and max values of the plot.
+
+##### ST7735_XYplot
+This function plots the values in the buffer using `ST7735_DrawPixel`. The plot coordinates are caluclated using the following lines of code
 
 ```
 			plot_x = (127 * (cur_x - min_x))/(max_x - min_x);
