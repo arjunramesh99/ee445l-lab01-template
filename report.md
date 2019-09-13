@@ -1,28 +1,33 @@
 # EE 445L Lab 1 Report
 
-[Firstname Lastname (eid123)]
-(Delete the stuff in parentheses and replace the stuff in square brackets with your content)
+Arjun Ramesh (ar59872)
 
 ## Objectives
 
-* [What did you do to complete this lab?]
-* [What components were you learning about?]
-* [Why do you think we made you do this lab?]
-* [Each of these bracketed items can have multiple answers, or you can choose not to answer a given question. Pretty freeform.]
+* This lab focused on how to write graphic driver functions for the ST7735 LCD. To complete this lab, we had to implement two functions: `ST7735_XY_PlotInit` and `ST7735_XYplot` that initialize a plot on the screen and plot points respectively.
+* The topics covered in the lab included LCD pixel plotting on the ST7735 and hardware interfacing of the LCD. 
+* The purpose of this lab was to learn how to interface the LCD and write basic software modules that augment an existing library. 
 
 ## Hardware Design
 
 No hardware design for this lab
 
 ## Software Design
-(Make a subsection for each file you made or edited (in this lab, probably just Lab1.c and ST7735.c). In future labs, this will be more of a high-level overview of the design of your system, usually in the form of a call graph or block diagram or something.)
 
-### [File name.c]
+### Plot.h
+This file contains the function definitions of the two methods: `ST7735_XY_PlotInit` and `ST7735_XYplot`.
 
-[Description of what you changed. use `graves (tilde without shift)` for variable names and stuff. or don't. It's up to you.]
+### Plot.c 
+
+This file contains the implementations of the two functions from it's respective .h file.<br><br>
+
+`ST7735_XYplotInit` fills the screen black using `ST7735_FillScreen`, sets the background color for the plot using `ST7735_FillRect`, outputs the title, and sets the endpoints min and max values of the plot.
+<br><br>
+`ST7735_XYplot` plots the values in the buffer using `ST7735_DrawPixel`. The plot coordinates are caluclated using the following lines of code
 
 ```
-	[Three graves for multi-line code snippets]
+			plot_x = (127 * (cur_x - min_x))/(max_x - min_x);
+			plot_y = 32 + (127 * (max_y - cur_y))/(max_y - min_y);
 ```
 
 ## Measurement Data
